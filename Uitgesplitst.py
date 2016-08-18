@@ -23,13 +23,19 @@ pd.set_option('max_colwidth', 400)
 path = '/Users/NCJ/Google Drive/20160707 SwishFund/'
 inputFolder = 'Input/'
 companyName = 'Mous/'
-inputName = path + inputFolder + fileName
+inputName = path + inputFolder + companyName
 
 import os
 listOfFiles = os.listdir(inputName)
+j=0
 for i in range(len(listOfFiles)):
-    listOfFiles[i] = path+inputFolder+fileName+listOfFiles[i]
-inputName = listOfFiles
+    if listOfFiles[i][-3:] == ('940' or 'STA' or 'SWI'):
+        listOfFiles2 = path+inputFolder+companyName+listOfFiles[i]
+        j=j+1
+    else:
+        'Nothing'
+
+inputName = [listOfFiles2]
 
 print('Reading and Merging File')
 transactionDf = readingMergingFile.readingMerging(inputName)
