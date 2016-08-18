@@ -22,7 +22,7 @@ pd.set_option('max_colwidth', 400)
 
 path = '/Users/NCJ/Google Drive/20160707 SwishFund/'
 inputFolder = 'Input/'
-fileName = 'Mous/'
+companyName = 'Mous/'
 inputName = path + inputFolder + fileName
 
 import os
@@ -40,7 +40,7 @@ print('Categorising File')
 transactionDf = categoriseFile.categorise(transactionDf)
 
 # Output the transactions to excel
-outputName = path + 'Output/' + (fileName.split('/')[0])
+outputName = path + 'Output/' + (companyName.split('/')[0])
 writer = ExcelWriter(outputName + '.xlsx')
 transactionDf.to_excel(writer, 'Sheet1')
 writer.save()
